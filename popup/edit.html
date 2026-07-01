@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chỉnh sửa Rule - CSS Injector</title>
+  <link rel="stylesheet" href="popup.css">
+  <style>
+    body {
+      width: 100%;
+      max-height: none;
+      height: 100vh;
+      background-color: var(--cds-ui-01);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+    }
+    .edit-container {
+      background: var(--cds-ui-background);
+      width: 800px;
+      height: 85vh;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+    }
+    .header-bar {
+      padding: var(--cds-spacing-04);
+      border-bottom: 1px solid var(--cds-ui-03);
+    }
+    .header-bar h2 {
+      font-size: 20px;
+    }
+    .form-body {
+      padding: var(--cds-spacing-04);
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: var(--cds-spacing-03);
+    }
+    .form-group.css-group {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group input, .form-group textarea {
+      padding: 9px 14px;
+      font-size: 14px;
+    }
+    .form-group textarea {
+      flex-grow: 1;
+      resize: none;
+    }
+    .actions-bar {
+      padding: var(--cds-spacing-04);
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--cds-spacing-03);
+      border-top: 1px solid var(--cds-ui-03);
+      background-color: var(--cds-ui-01);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="edit-container">
+    <div class="header-bar">
+      <h2 id="page-title">Thêm rule mới</h2>
+    </div>
+    
+    <div class="form-body">
+      <div class="form-group">
+        <label for="input-url">Tên miền hoặc URL (VD: example.com)</label>
+        <input type="text" id="input-url" placeholder="Nhập địa chỉ trang web">
+      </div>
+      <div class="form-group css-group">
+        <label for="input-css">Mã CSS</label>
+        <textarea id="input-css" placeholder="body { background-color: #f4f4f4; }"></textarea>
+      </div>
+    </div>
+    
+    <div class="actions-bar">
+      <button id="btn-cancel" class="btn btn-secondary">Hủy bỏ / Đóng</button>
+      <button id="btn-save" class="btn btn-primary">Lưu thay đổi</button>
+    </div>
+  </div>
+
+  <script src="../lib/storage.js"></script>
+  <script src="edit.js"></script>
+</body>
+</html>

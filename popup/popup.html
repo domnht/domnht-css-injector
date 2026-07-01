@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Injector</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <h2>CSS Injector</h2>
+    <div class="actions">
+      <button id="btn-add" class="btn btn-sm btn-primary">Thêm trang</button>
+      <button id="btn-import" class="btn btn-sm btn-secondary">Nhập</button>
+      <button id="btn-export" class="btn btn-sm btn-secondary">Xuất</button>
+    </div>
+  </div>
+
+  <div class="rules-container" id="rules-list">
+    <!-- Các rules sẽ được render ở đây -->
+  </div>
+
+  <div class="footer">
+    <span id="rule-count">0 rule(s)</span>
+  </div>
+
+
+
+  <!-- Input file ẩn để import json -->
+  <input type="file" id="file-import" accept=".json" class="hidden">
+
+  <!-- Cần nhúng StorageManager để popup dùng chung logic -->
+  <script src="../lib/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

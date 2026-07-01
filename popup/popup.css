@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* IBM Carbon Design System Variables */
+:root {
+  /* Colors - Core */
+  --cds-interactive-01: #0f62fe;
+  --cds-interactive-01-hover: #0353e9;
+  --cds-interactive-02: #393939;
+  --cds-interactive-02-hover: #4c4c4c;
+  --cds-danger: #da1e28;
+  --cds-danger-hover: #ba1b23;
+
+  /* Colors - UI & Text */
+  --cds-ui-background: #ffffff;
+  --cds-ui-01: #f4f4f4;
+  --cds-ui-01-hover: #e5e5e5;
+  --cds-ui-03: #e0e0e0; /* border subtle */
+  --cds-ui-04: #8d8d8d; /* border strong */
+  --cds-text-01: #161616;
+  --cds-text-02: #525252;
+  --cds-text-04: #ffffff; /* text on interactive */
+  --cds-text-error: #da1e28;
+  --cds-focus: #0f62fe;
+
+  /* Typography */
+  --cds-font-family: 'IBM Plex Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --cds-body-short-01-font-size: 14px;
+  --cds-body-short-01-line-height: 1.28572;
+  --cds-body-short-01-letter-spacing: 0.16px;
+  
+  --cds-label-01-font-size: 12px;
+  --cds-label-01-line-height: 1.33333;
+  --cds-label-01-letter-spacing: 0.32px;
+
+  /* Spacing */
+  --cds-spacing-02: 8px;
+  --cds-spacing-03: 16px;
+  --cds-spacing-04: 24px;
+  --cds-spacing-05: 32px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 440px; /* Hơi rộng một chút để có chỗ cho padding theo chuẩn Carbon */
+  min-height: 280px;
+  font-family: var(--cds-font-family);
+  font-size: var(--cds-body-short-01-font-size);
+  color: var(--cds-text-01);
+  background-color: var(--cds-ui-background);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Carbon Typography */
+h2 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.28572;
+  margin: 0;
+}
+
+/* Layout */
+.header {
+  padding: var(--cds-spacing-03);
+  border-bottom: 1px solid var(--cds-ui-03);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--cds-ui-background);
+}
+
+.actions {
+  display: flex;
+  gap: 1px; /* Trong Carbon, các button ở toolbar thường dính sát nhau hoặc cách 1px */
+}
+
+/* Carbon Buttons (Ghost/Primary/Secondary) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 16px; /* Kích thước field mặc định */
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: var(--cds-font-family);
+  font-size: var(--cds-body-short-01-font-size);
+  line-height: 1;
+  font-weight: 400;
+  transition: background-color 0.11s, box-shadow 0.11s;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+}
+
+.btn:focus {
+  outline: 2px solid var(--cds-focus);
+  outline-offset: -2px;
+}
+
+.btn-sm {
+  padding: 7px 15px; /* Chiều cao 32px cho giao diện gọn */
+}
+
+.btn-primary {
+  background-color: var(--cds-interactive-01);
+  color: var(--cds-text-04);
+}
+
+.btn-primary:hover {
+  background-color: var(--cds-interactive-01-hover);
+}
+
+.btn-secondary {
+  background-color: var(--cds-interactive-02);
+  color: var(--cds-text-04);
+}
+
+.btn-secondary:hover {
+  background-color: var(--cds-interactive-02-hover);
+}
+
+.btn-danger {
+  background-color: var(--cds-danger);
+  color: var(--cds-text-04);
+}
+
+.btn-danger:hover {
+  background-color: var(--cds-danger-hover);
+}
+
+/* Lists */
+.rules-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  min-height: 0; /* Adaptive height */
+  /*max-height: 450px; /* Chrome popup limit is 600px */
+  background-color: var(--cds-ui-background);
+}
+
+.rule-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--cds-spacing-03);
+  padding: var(--cds-spacing-03);
+  border-bottom: 1px solid var(--cds-ui-03);
+  transition: background-color 0.11s;
+}
+
+.rule-item:hover {
+  background-color: var(--cds-ui-01-hover);
+}
+
+.rule-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.rule-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.rule-url {
+  font-weight: 600;
+  font-size: var(--cds-body-short-01-font-size);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rule-css-preview {
+  font-size: var(--cds-label-01-font-size);
+  color: var(--cds-text-02);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'IBM Plex Mono', Consolas, monospace; /* Mã code cần monospace */
+}
+
+.rule-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--cds-spacing-02);
+}
+
+/* Icon / Ghost buttons */
+.btn-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--cds-interactive-01);
+  font-size: var(--cds-label-01-font-size);
+  padding: 8px 12px;
+  font-family: inherit;
+  font-weight: 400;
+  transition: background-color 0.11s;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+}
+.btn-icon:hover {
+  background-color: var(--cds-ui-01-hover);
+}
+.btn-icon:focus {
+  outline: 2px solid var(--cds-focus);
+}
+
+.btn-icon.danger {
+  color: var(--cds-danger);
+}
+.btn-icon.danger:hover {
+  background-color: var(--cds-danger);
+  color: var(--cds-text-04);
+}
+
+.footer {
+  padding: var(--cds-spacing-02) var(--cds-spacing-03);
+  border-top: 1px solid var(--cds-ui-03);
+  font-size: var(--cds-label-01-font-size);
+  color: var(--cds-text-02);
+  text-align: right;
+  background-color: var(--cds-ui-01);
+}
+
+/* --- Modal styles removed (Moved to separate tab) --- */
+
+.hidden {
+  display: none !important;
+}
+
+/* Carbon Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: relative;
+  width: 32px; 
+  height: 16px; 
+  background-color: var(--cds-ui-04);
+  border-radius: 16px;
+  transition: background-color 0.11s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--cds-ui-background);
+  border-radius: 50%;
+  transition: transform 0.11s;
+}
+input:checked + .slider {
+  background-color: var(--cds-interactive-01);
+}
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+input:focus + .slider {
+  outline: 2px solid var(--cds-focus);
+  outline-offset: 2px;
+}
